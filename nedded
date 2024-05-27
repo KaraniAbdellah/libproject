@@ -23,15 +23,7 @@ Creating static (.a) and dynamic (.so) libraries.
 
 /// Implement Library Functions
 
-
-/// Compile the Library |||
-
-	# Compile the test program with the static library
-	g	cc test.c -L. -lmylib -o test
-
-	# Compile the test program with the dynamic library
-		gcc test.c -L. -lmylib -o test -Wl,-rpath,.
-
+	## All Function in string.h
 
 /// Use The Library 
 
@@ -51,10 +43,18 @@ Creating static (.a) and dynamic (.so) libraries.
 	Packaging: Consider packaging your library for distribution (e.g., creating a .tar.gz archive).
 */
 
-
-
-
-
+// Documentation
+Doxygen, which is a documentation generator widely used in software
+development to create documentation from annotated source code
+	@brief : This tag provides a brief description of the function.
+	@param: This tag describes a parameter of the function.
+Example : sayHello() Function
+/**
+ * @brief Prints a greeting message.
+ *
+ * @param name The name to be included in the greeting.
+ *
+*/
 
 
 
