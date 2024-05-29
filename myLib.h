@@ -7,6 +7,7 @@
 	char *strcpyS (char* destination, char* source);
 	char *strchrS (const char *str, int c);
 	char *strstrS (const char *s1, const char *s2);
+	char *strtokS (char *str, const char *delims);
 	// End Functions Declaration
 #endif
 

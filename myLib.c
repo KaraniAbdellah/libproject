@@ -120,10 +120,37 @@ char *strchrS(const char *str, int c) {
  */
 
 
+char *strstrS (const char *s1, const char *s2) {
+	if (s1 == NULL || s2 == NULL) return NULL;
+	if (*s2 == '\0') return (char *) s1;
+	for (; *s1 != '\0'; s1++) {
+		if (*s2 == *s1) {
+			const char *temp1 = (char *) s1; 
+			const char *temp2 = (char *) s2;
+			while (*temp1 != '\0' && *temp1 == *temp2) {
+				temp1++; temp2++;
+			}
+			if (*temp1 == '\0') return (char *) s1;
+			s1 = temp1;
+		}
+	}
+	return NULL;
+}
 
 
+/**
+ * @brief Splits str[] according to given delimiters.
+ *
+ * @param str: It is the pointer to the string to be tokenized.
+ * @param delims: It is a string containing all delimiters.
+ *
+ * @return A Pointer to the first token encountered in the string.
+		  	 NULL when there are no more tokens.
+ */
 
-
+char *strtokS (char *str, const char *delims) {
+	
+}
 
 
 

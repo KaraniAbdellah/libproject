@@ -30,6 +30,12 @@ int main() {
 	ret = strchrS(link, ch);
 	printf("String after |%c| is - |%s|\n", ch, ret);
 	// Test strstrS()
+	char str_test[] = "geeksforGEEKS";
+	char f[] = "forGEEKS";
+	char *p_tr = strstrS(str_test, f);
+	printf("\nThe String Is : |%s|\n", p_tr);
+	// Test  strtok()
+	
 	return 0;
 }
 
