@@ -8,12 +8,31 @@ strstr() strtok() strncpy() strncat() strncmp()
 
 // Start The Fucntions Implementation
 
+/**
+ * @brief Calculates the length of a string.
+ *
+ * @param str Pointer to the string whose length will be calculated.
+ * 
+ * @return The number of characters in the string, excluding the null-terminator.
+ */
+
 size_t strlenS(const char *str) {
 	size_t len = 0;
 	while (str[len] != '\0') len++;
 	return len;
 }
 
+
+/**
+ * @brief Cat a string to another string
+ *
+ * This function adds the content of the `src` to `dest`.
+ *
+ * @param dest Pointer to the destination string.
+ * @param src Pointer to the source string.
+ * 
+ * @return Pointer to the destination string `dest`.
+ */
 
 char *strcatS(char *dest, const char *src) {
 	char *ptr = dest;
@@ -27,6 +46,20 @@ char *strcatS(char *dest, const char *src) {
 }
 
 
+/**
+ * @brief Compare two strings.
+ *
+ * This function compares the two strings `lhs` and `rhs` character by character.
+ *
+ * @param lhs The first string to be compared.
+ * @param rhs The second string to be compared.
+ * 
+ * @return An integer indicating the result of the comparison:
+ *         - A value less than 0 if `lhs` is less than `rhs`.
+ *         - 0 if `lhs` is equal to `rhs`.
+ *         - A value greater than 0 if `lhs` is greater than `rhs`.
+ */
+
 int strcmpS(const char *lhs, const char *rhs) {
 	int i = 0;
 	while (lhs[i] != '\0' || rhs[i] != '\0') {
@@ -37,6 +70,54 @@ int strcmpS(const char *lhs, const char *rhs) {
 }
 
 
+/**
+ * @brief Copies a source string to a destination string.
+ *
+ * @param destination Pointer to the destination array.
+ * @param source Pointer to the source string.
+ *
+ * @return Pointer to the destination string.
+ */
+
+char *strcpyS(char* destination, char* source) {
+	int i;	
+	for (i = 0; source[i] != '\0'; i++) {
+		destination[i] = source[i];
+	}
+	destination[i] = '\0';	
+	return destination;
+}
+
+
+/**
+ * @brief Searches for the first occurrence
+ *
+ * @param str − This is the C string to be scanned.
+ * @param c − This is the character to be searched in str.
+ *
+ * @return A Pointer to the first occurrence of the character c in the string str,
+		  	or NULL if the character is not found.
+ */
+
+char *strchrS(const char *str, int c) {
+	for (; *str != '\0'; str++) {
+		if ((int) *str == c) {
+			return (char *) str;
+		}
+	}
+	return NULL;
+}
+
+
+/**
+ * @brief Finds the first occurrence of the string s2 in the string s1.
+ *
+ * @param s1: This is the main string to be examined.
+ * @param s2: This is the sub-string to be searched in string.
+ *
+ * @return A Pointer to the first occurrence of the character c in the string str,
+		  	or NULL if the character is not found.
+ */
 
 
 
