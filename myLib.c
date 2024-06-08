@@ -149,7 +149,22 @@ char *strstrS (const char *s1, const char *s2) {
  */
 
 char *strtokS (char *str, const char *delims) {
-	
+    // "Hello, world! Welcome to C programming." and " ,.!"
+    static char *temp;
+    char *start, *temp2 = NULL;
+    if (str == NULL) start = temp;
+    else start = str;
+    for (char *p = start; *p != '\0'; p++) {
+        for (char *q = (char *) delims; *q != '\0'; q++) {
+            if (*p == *q) {
+                *p = '\0'; 
+                if (str != NULL) temp2 = str;
+                else temp2 = temp;
+                temp = ++p;
+            }
+        }
+    }
+    return temp2;
 }
 
 

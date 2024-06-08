@@ -21,7 +21,7 @@ int main() {
 	char string1[20] = "C programming";
 	char string2[2];
 	strcpyS(string2, string1);
-  	puts(string2);
+    puts(string2);
 	printf("\n%s\n", string2);
 	// Test strchr()
 	const char link[] = "https://www.github.com";
@@ -34,9 +34,15 @@ int main() {
 	char f[] = "forGEEKS";
 	char *p_tr = strstrS(str_test, f);
 	printf("\nThe String Is : |%s|\n", p_tr);
-	// Test  strtok()
-	
-	return 0;
+	// Test  strtokS()
+    char str_str[] = "world!    Welcome to C programming.";
+    const char delim[] = " ,.!";
+    char *token = strtokS(str_str, delim);
+    while (token != NULL) {
+        printf("Token: %s\n", token);
+        token = strtokS(NULL, delim);
+    }
+    return 0;	
 }
 
 
