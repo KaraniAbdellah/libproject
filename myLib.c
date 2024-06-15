@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdbool.h>
 #include "myLib.h"
 
 /*
@@ -148,23 +149,26 @@ char *strstrS (const char *s1, const char *s2) {
 		  	 NULL when there are no more tokens.
  */
 
+
 char *strtokS (char *str, const char *delims) {
     // "Hello, world! Welcome to C programming." and " ,.!"
-    static char *temp;
-    char *start, *temp2 = NULL;
-    if (str == NULL) start = temp;
-    else start = str;
+    static char *start = NULL;
+    char *temp;
+    bool check;
+
+    if (str != NULL) start = str;
+    else if (start == NULL) return NULL;
+
     for (char *p = start; *p != '\0'; p++) {
-        for (char *q = (char *) delims; *q != '\0'; q++) {
+        check = false;
+        for (const char *q = (char *) delims; *q != '\0'; q++) {
             if (*p == *q) {
-                *p = '\0'; 
-                if (str != NULL) temp2 = str;
-                else temp2 = temp;
-                temp = ++p;
+                *p = '\0'; temp = start; start = ++p; check = true; break;
             }
         }
+        if (check) return temp;
     }
-    return temp2;
+    return NULL;
 }
 
 

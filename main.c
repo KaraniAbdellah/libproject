@@ -42,7 +42,7 @@ int main() {
         printf("Token: %s\n", token);
         token = strtokS(NULL, delim);
     }
-    return 0;	
+    return 0;
 }
 
 
