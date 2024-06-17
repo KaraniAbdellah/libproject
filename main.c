@@ -42,6 +42,37 @@ int main() {
         printf("Token: %s\n", token);
         token = strtokS(NULL, delim);
     }
+    // Test strncpyS()
+    char src_str[]= "To be or not to be";
+    char dest_str2[40];
+    char dest_str3[40];
+    strncpyS ( dest_str2, src_str, sizeof(dest_str2) );
+    strncpyS ( dest_str3, dest_str2, 5);
+    dest_str3[5] = '\0';
+    puts (src_str);
+    puts (dest_str2);
+    puts (dest_str3);
+    printf("\n");
+    // Test strncutS()
+   char src_cut[50], dest_cut[50];
+   strcpy(src_cut,  "This is source");
+   strcpy(dest_cut, "This is destination");
+   strncat(dest_cut, src_cut, 15);
+   printf("Final destination string : |%s|\n", dest_cut);
+   // Test strncmpS()
+   char str1_cmp[15];
+   char str2_cmp[15];
+   int ret_cmp;
+   strcpyS (str1_cmp, "abcdef");
+   strcpyS (str2_cmp, "ABCDEF");
+   ret_cmp = strncmp(str1_cmp, str2_cmp, 4);
+   if(ret_cmp < 0) {
+      printf("str1 is less than str2\n");
+   } else if(ret_cmp > 0) {
+      printf("str2 is less than str1\n");
+   } else {
+      printf("str1 is equal to str2\n");
+   }
     return 0;
 }
 

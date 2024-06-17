@@ -172,10 +172,71 @@ char *strtokS (char *str, const char *delims) {
 }
 
 
+/**
+ * @brief copies up to n characters from the string pointed to, by src to dest.
+ *
+ * @param dest : This is the pointer to the destination array where the content is to be copied.
+ * @param src : This is the string to be copied.
+ * @param n : The number of characters to be copied from source.
+ *
+ * @return  returns the pointer to the copied string.
+ */
+
+char *strncpyS(char *dest, const char *src, size_t n) {
+    int i;
+    for (i = 0; i < n; i++) {
+        dest[i] = src[i];
+    }
+    dest[i] = '\0';
+    return dest;
+}
 
 
+/**
+ * @brief appends the string pointed to by src to the end of the string pointed to by dest up to n characters long.
+ *
+ * @param dest − This is pointer to the destination array, which should contain a C string, and should be large
+ *      enough to contain the concatenated resulting string which includes the additional null-character.
+ *      src − This is the string to be appended.
+ * @param n − This is the maximum number of characters to be appended.
+ *
+ * @return  returns a pointer to the resulting string dest.
+ */
 
 
+char *strncatS (char *dest, const char *src, size_t n) {
+    char *p;
+    int i = 0;
+    for (p = dest; *p != '\0'; p++);
+    for (; p < p + n; p++) {
+         *p = src[i];
+         i++;
+    }
+    return dest;
+}
+
+
+/**
+ * @brief compares at most the first n bytes of str1 and str2.
+ *
+ * @param str1 − This is the first string to be compared.
+ * @param str2 − This is the second string to be compared.
+ * @param n − The maximum number of characters to be compared.
+ *
+ * @return
+        if Return value < 0 then it indicates str1 is less than str2.
+        if Return value > 0 then it indicates str2 is less than str1.
+        if Return value = 0 then it indicates str1 is equal to str2.
+ */
+
+int strncmpS (const char *str1, const char *str2, size_t n) {
+    int i = 0;
+    while (i < n) {
+        if (str1[i] == str2[i]) i++;
+        else return (int) str1[i] - str2[i];
+    }
+    return 0;
+}
 
 
 
