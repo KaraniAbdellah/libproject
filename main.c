@@ -73,6 +73,9 @@ int main() {
    } else {
       printf("str1 is equal to str2\n");
    }
+   // Test strrev()
+   char rev_str[20] = "1234567";
+   printf("After reversing string is = %s\n", strrevS(rev_str));
     return 0;
 }
 

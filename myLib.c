@@ -5,6 +5,7 @@
 /*
 strlen() strcat() strcmp() strcpy() strchr()
 strstr() strtok() strncpy() strncat() strncmp()
+strrev() strspn()
 */
 
 // Start The Fucntions Implementation
@@ -237,6 +238,37 @@ int strncmpS (const char *str1, const char *str2, size_t n) {
     }
     return 0;
 }
+
+
+/**
+ * @brief function is used to reverse the given string.
+ *
+ * @param str: The given string which is needed to be reversed.
+ *
+ * @return the string reversed
+ */
+
+char *strrevS(char *str) {
+    if (str == NULL) return NULL;
+    char *p1 = str;
+    char *p2 = str + strlenS(str) - 1;
+    while (p1 < p2) {
+        char temp = *p1;
+        *p1 = *p2;
+        *p2 = temp;
+        p1++; p2--;
+    }
+    return str;
+}
+
+
+
+
+
+
+
+
+
 
 
 
