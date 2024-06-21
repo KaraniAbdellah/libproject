@@ -73,9 +73,16 @@ int main() {
    } else {
       printf("str1 is equal to str2\n");
    }
-   // Test strrev()
+   // Test strrevS ()
    char rev_str[20] = "1234567";
    printf("After reversing string is = %s\n", strrevS(rev_str));
+   // Test strspnS ()
+   printf("Length of initial segment matching : %zu\n", strspnS ("abcrd","abcdef")); // Output: 4
+   printf("Length of initial segment matching : %zu\n", strspn ("abcrd","abcdef")); // Output: 4
+    
+    
+    
+    
     return 0;
 }
 

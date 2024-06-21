@@ -243,7 +243,7 @@ int strncmpS (const char *str1, const char *str2, size_t n) {
 /**
  * @brief function is used to reverse the given string.
  *
- * @param str: The given string which is needed to be reversed.
+ * @param z: The given string which is needed to be reversed.
  *
  * @return the string reversed
  */
@@ -260,6 +260,37 @@ char *strrevS(char *str) {
     }
     return str;
 }
+
+
+/**
+ * @brief function is used to reverse the given string.
+ *
+ * @param str1: string to be scanned.
+ * @param str2: string containing the characters to match.
+ *
+ * @return the number of characters in the initial segment of str1 which consist only of characters from str2.
+ */
+
+size_t strspnS (const char *str1, const char *str2) {
+    char *temp1 = (char *) str1, *temp2;
+    size_t count = 0;
+    while (*temp1 != ' ') {
+        temp2 = (char *) str2;
+        while (*temp2 != '\0') {
+            if (*temp1 == *temp2) {
+                count++; break;
+            }
+            temp2++;
+        }
+        if (*temp2 == '\0') break;
+        temp1++;
+    }
+    return count;
+}
+
+
+
+
 
 
 
