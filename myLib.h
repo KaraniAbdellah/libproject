@@ -1,3 +1,4 @@
+#include <stdbool.h>
 #ifndef MYLIB_H
 	#define MYLIB_H
 	// Start Functions Declaration
@@ -13,6 +14,7 @@
 	int strncmpS (const char *str1, const char *str2, size_t n);
 	char *strrevS (char *str);
 	size_t strspnS (const char *str1, const char *str2);
+	char *strrepeat(const char *str, int n, char c, bool showEnd);
 	// End Functions Declaration
 #endif
 

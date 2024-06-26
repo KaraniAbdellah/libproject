@@ -5,7 +5,7 @@
 /*
 strlen() strcat() strcmp() strcpy() strchr()
 strstr() strtok() strncpy() strncat() strncmp()
-strrev() strspn()
+strrev() strspn() strrepeat() 
 */
 
 // Start The Fucntions Implementation
@@ -289,8 +289,25 @@ size_t strspnS (const char *str1, const char *str2) {
 }
 
 
+/**
+ * @brief This Function Will Repeat The String
+ *
+ * @param str: The String That Will Be Repeated
+ * @param n: The Number Of Repeating
+ * @param sep: The Separator Between The Repeated Strings
+ * @param showEnd: Show The Separator At The End Of The String
+ *
+ * return Nothing
+ */
 
 
+char *strrepeat(const char *str, int n, char sep, bool showEnd) {
+    for (int i = 0; i < n; i++) {
+        if (i == n - 1 && !showEnd) {
+            printf("%s", str);
+        } else printf("%s%c", str, sep);
+    }
+}
 
 
 

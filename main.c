@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include  "myLib.h" // That Contain All The Functions That Exit in <string.h>
 #include <string.h>
+#include <stdbool.h>
 
 int main() {
 	// Test strlenS Function
@@ -79,8 +80,10 @@ int main() {
    // Test strspnS ()
    printf("Length of initial segment matching : %zu\n", strspnS ("abcrd","abcdef")); // Output: 4
    printf("Length of initial segment matching : %zu\n", strspn ("abcrd","abcdef")); // Output: 4
-    
-    
+    // Test strrepeat()
+    char repeat[10] = "Be Nice";
+    strrepeat(repeat, 3, '_', true);
+    printf("\n");
     
     
     return 0;
