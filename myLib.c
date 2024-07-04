@@ -86,7 +86,7 @@ char *strcpyS(char* destination, char* source) {
 	for (i = 0; source[i] != '\0'; i++) {
 		destination[i] = source[i];
 	}
-	destination[i] = '\0';	
+	destination[i] = '\0';
 	return destination;
 }
 
@@ -311,7 +311,22 @@ char *strrepeat(const char *str, int n, char sep, bool showEnd) {
 
 
 
-
+char *Zfill(char *str, int n) {
+    int i, size_str = strlenS(str);
+    char temp[size_str];
+    strcpyS(temp, str);
+    for (i = 0; i < n; i++) {
+        if (i < n - size_str) {
+            str[i] = '0';
+            printf("i = %d\n", i);
+        }
+        else {
+            str[i] = temp[n - size_str - i];
+            printf("j = %d, c = %c\n", n - size_str - i, str[i]);
+        }
+    }
+    return str;
+}
 
 
 
