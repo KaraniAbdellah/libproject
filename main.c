@@ -84,10 +84,13 @@ int main() {
     char repeat[10] = "Be Nice";
     strrepeat(repeat, 3, '_', true);
     printf("\n");
-    // Test ZFill
-    char str_fill[20] = "10";
-    Zfill(str_fill, 10);
+    // Test ZFill()
+    char str_fill[50] = "10";
+    Zfill(str_fill, 10, '@');
     printf("\nThe String After Filling Is %s\n", str_fill);
+    // Test generateString();
+    printf("The Generated Numbes Is :"); generateString(10);
+    printf("\n");
     return 0;
 }
 

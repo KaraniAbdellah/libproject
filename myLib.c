@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include "myLib.h"
-
+#include <stdlib.h>
 /*
 strlen() strcat() strcmp() strcpy() strchr()
 strstr() strtok() strncpy() strncat() strncmp()
@@ -311,27 +311,46 @@ char *strrepeat(const char *str, int n, char sep, bool showEnd) {
 
 
 
-char *Zfill(char *str, int n) {
-    int i, size_str = strlenS(str);
-    char temp[size_str];
-    strcpyS(temp, str);
-    for (i = 0; i < n; i++) {
-        if (i < n - size_str) {
-            str[i] = '0';
-            printf("i = %d\n", i);
-        }
+/**
+ * @brief This function fills the spaces in a string.
+ *
+ * @param str The string to be filled.
+ * @param n The width of the string after filling.
+ * @param fill The character to fill the string with.
+ *
+ * @return The filled string.
+ */
+
+
+char *Zfill(char *str, int n, char fill) {
+    int size_str = strlenS(str);
+    if (size_str >= n) return str;
+    for (int i = 0; i < size_str; i++) {
+        str[n - size_str + i] = str[i];
+    }
+    for (int i = 0; i < n + size_str; i++) {
+        if (i < n - size_str) str[i] = fill;
         else {
-            str[i] = temp[n - size_str - i];
-            printf("j = %d, c = %c\n", n - size_str - i, str[i]);
+            if (str[i] == ' ') str[i] = fill;
         }
     }
     return str;
 }
 
 
+void generateString(int n) {
+    char str[n];
+    int randomNumber = 0;
+    for (int i = 0; i < n; i++) {
+        randomNumber = rand() % 126 + 1;
+        if (randomNumber < 33) randomNumber += 32;
+        str[i] = (char) randomNumber;
+    }
+    printf("%s", str);
+}
 
 
-
+// Watch THe Video And Then Do The Fucntion That Generate Number Not String 
 
 
 

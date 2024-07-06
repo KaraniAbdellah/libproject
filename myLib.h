@@ -15,7 +15,8 @@
 	char *strrevS (char *str);
 	size_t strspnS (const char *str1, const char *str2);
 	char *strrepeat(const char *str, int n, char c, bool showEnd);
-	char *Zfill(char *str, int n);
+	char *Zfill(char *str, int n, char fill);
+	void generateString(int n);
 	// End Functions Declaration
 #endif
 
