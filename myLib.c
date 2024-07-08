@@ -289,6 +289,7 @@ size_t strspnS (const char *str1, const char *str2) {
 }
 
 
+
 /**
  * @brief This Function Will Repeat The String
  *
@@ -299,7 +300,6 @@ size_t strspnS (const char *str1, const char *str2) {
  *
  * return Nothing
  */
-
 
 char *strrepeat(const char *str, int n, char sep, bool showEnd) {
     for (int i = 0; i < n; i++) {
@@ -321,7 +321,6 @@ char *strrepeat(const char *str, int n, char sep, bool showEnd) {
  * @return The filled string.
  */
 
-
 char *Zfill(char *str, int n, char fill) {
     int size_str = strlenS(str);
     if (size_str >= n) return str;
@@ -338,6 +337,15 @@ char *Zfill(char *str, int n, char fill) {
 }
 
 
+
+/**
+ * @brief Generate a random string
+ *
+ * @param n number of characters
+ *
+ * @return The generated string
+ */
+
 void generateString(int n) {
     char str[n];
     int randomNumber = 0;
@@ -350,7 +358,91 @@ void generateString(int n) {
 }
 
 
-// Watch THe Video And Then Do The Fucntion That Generate Number Not String 
+
+/**
+ * @brief get the min in vector
+ *
+ * @param vector that will be get from him
+ *
+ * @return the minimum value in vector
+ */
+
+int getMin(int *vector) {
+    int length = sizeof(vector) / sizeof(int);
+    int min = vector[0];
+    for (int i = 1; i < length; i++) {
+        if (vector[i] < min) min = vector[i];
+    }
+    return min;
+}
+
+
+
+/**
+ * @brief get the max in vector
+ *
+ * @param vector that will be get from him
+ *
+ * @return the maximum value in vector
+ */
+
+int getMax(int *vector) {
+    int length = sizeof(vector) / sizeof(int);
+    int max = vector[0];
+    for (int i = 1; i < length; i++) {
+        if (vector[i] > max) max = vector[i];
+    }
+    return max;
+}
+
+
+
+/**
+ * @brief Perform an operation on all elements of a vector.
+ *
+ * @param vector A pointer to the integer array.
+ * @param operation The operation: '+' for addition, '-' for subtraction,
+ *                  '*' for multiplication, '/' for division.
+ *
+ * @return The result of the operation, or -1 for division by zero or
+ *         invalid operation.
+ */
+
+int calculator(int *vector, char operation) {
+    int result = vector[0];
+    int length = sizeof(vector) / sizeof(int);
+    for (int i = 1; i < length; i++) {
+        if (operation == '+') result += vector[i];
+        else if (operation == '-') result -= vector[i];
+        else if (operation == '*') result *= vector[i];
+        else if (operation == '/') {
+            if (vector[i] == 0) return -1;
+            result /= vector[i];
+        }
+        else return -1;
+    }
+    return result;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

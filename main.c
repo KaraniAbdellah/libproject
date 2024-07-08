@@ -91,6 +91,15 @@ int main() {
     // Test generateString();
     printf("The Generated Numbes Is :"); generateString(10);
     printf("\n");
+    // Test getMin(); && getMax();
+    int vector1[10] = {2, 1};
+    printf("The Min Is %d\n", getMin(vector1));
+    printf("The Max Is %d\n", getMax(vector1));
+    // Test calculator();
+    printf("The Mutiplication is %d\n", calculator(vector1, '*'));
+    printf("The Sum is %d\n", calculator(vector1, '+'));
+    printf("The Substraction is %d\n", calculator(vector1, '-'));
+    printf("The Division is %d\n", calculator(vector1, '/'));
     return 0;
 }
 

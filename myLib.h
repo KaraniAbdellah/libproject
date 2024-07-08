@@ -17,6 +17,9 @@
 	char *strrepeat(const char *str, int n, char c, bool showEnd);
 	char *Zfill(char *str, int n, char fill);
 	void generateString(int n);
+	int getMin(int *vector);
+	int getMax(int *vector);
+	int calculator(int *vector, char operation);
 	// End Functions Declaration
 #endif
 
