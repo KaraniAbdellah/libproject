@@ -426,9 +426,81 @@ int calculator(int *vector, char operation) {
 
 
 
+/**
+ * @brief Converts all lowercase letters in the given string to uppercase.
+ *
+ * @param str Pointer to a null-terminated string.
+ */
+ 
+void touppercase(char *str) {
+    for (int i = 0; str[i] != '\0'; i++) {
+        if (str[i] >= 'a' && str[i] <= 'z') str[i] = str[i] - 32;
+    }
+}
 
 
 
+/**
+ * @brief Converts all uppercase letters in the given string to lowercase.
+ *
+ * @param str Pointer to a null-terminated string.
+ */
+void tolowercase(char *str) {
+    for (int i = 0; str[i] != '\0'; i++) {
+        if (str[i] >= 'A' && str[i] <= 'Z') str[i] = str[i] + 32;
+    }
+}
+
+
+
+/**
+ * @brief Swaps the case of each letter in the given string. 
+ * Converts uppercase letters to lowercase and lowercase letters to uppercase.
+ *
+ * @param str Pointer to a null-terminated string.
+ */
+void toswapcase(char *str) {
+    for (int i = 0; str[i] != '\0'; i++) {
+        if (str[i] >= 'A' && str[i] <= 'Z') str[i] = str[i] + 32;
+        else if (str[i] >= 'a' && str[i] <= 'z') str[i] = str[i] - 32;
+        else;
+    }
+}
+
+
+
+
+/**
+ * @brief Return The Numbers that exit in the string 
+ *
+ * @param str Pointer to a null-terminated string.
+ *
+ * @return the number that exit in str
+ */
+
+int ParseInteger(char *str) {
+    int result = 0;
+    for (int i = 0; str[i] != '\0'; i++) {
+        if (str[i] >= '0' && str[i] <= '9') {
+            if (result == 0) result += ((int) str[i] - 48);
+            else {
+                result *= 10;
+                result += ((int) str[i] - 48);
+            }
+        }
+    }
+    return result;
+}
+
+
+
+
+bool IsNaN(char *str) {
+    for (int i = 0; str[i] != '\0'; i++) {
+        if (str[i] < '0' || str[i] > '9') return false;
+    }
+    return true;
+}
 
 
 

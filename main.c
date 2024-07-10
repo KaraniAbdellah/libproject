@@ -100,8 +100,27 @@ int main() {
     printf("The Sum is %d\n", calculator(vector1, '+'));
     printf("The Substraction is %d\n", calculator(vector1, '-'));
     printf("The Division is %d\n", calculator(vector1, '/'));
+    // Test toupper() && tolower() functions
+    char cases[20] = "Hello World";
+    tolowercase(cases);
+    printf("To Lower Case : %s\n", cases);
+    touppercase(cases);
+    cases[0] = 'E';
+    printf("To Upper Case : %s\n", cases);
+    char cases1[20] = "HeLlo AbdeLlah";
+    toswapcase(cases1);
+    printf("To Swap Case : %s\n", cases1);
+    // Test ParseInteger()
+    printf("The Number In This Integer is %d\n", ParseInteger("Hello123OP340"));
+    // Test IsNaN();
+    char check_if_number[10] = "1293";
+    if (IsNaN(check_if_number)) printf("%s is Number \n", check_if_number);
+    else printf("%s Is Not A Number\n", check_if_number);
     return 0;
+    
 }
+
+
 
 
 

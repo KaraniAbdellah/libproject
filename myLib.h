@@ -20,8 +20,24 @@
 	int getMin(int *vector);
 	int getMax(int *vector);
 	int calculator(int *vector, char operation);
+	void touppercase(char *str);
+	void tolowercase(char *str);
+	void toswapcase(char *str);
+	int ParseInteger(char *str);
+	bool IsNaN(char *str);
 	// End Functions Declaration
 #endif
+
+
+
+
+
+
+
+
+
+
+
 
 
 
