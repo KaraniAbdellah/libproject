@@ -116,6 +116,14 @@ int main() {
     char check_if_number[10] = "1293";
     if (IsNaN(check_if_number)) printf("%s is Number \n", check_if_number);
     else printf("%s Is Not A Number\n", check_if_number);
+    // Test trim_string()
+    char trim_string_test[30] = "^^^Abde^^^llah^^^";
+    printf("The Trimed String From Right is %s\n", trim_string(trim_string_test, 1, '^'));
+    printf("The Trimed String From Left is %s\n", trim_string(trim_string_test, -1, '^'));
+    printf("The Trimed String From All is %s\n", trim_string(trim_string_test, 0, '^'));
+    // Test subString()
+    char sub_str_test[20] = "Hello World";
+    printf("The SubString from %s From %d to %d is \"%s\"\n", sub_str_test, 4, 8, subString(sub_str_test, 4, 6));
     return 0;
     
 }

@@ -48,6 +48,7 @@ char *strcatS(char *dest, const char *src) {
 }
 
 
+
 /**
  * @brief Compare two strings.
  *
@@ -72,6 +73,7 @@ int strcmpS(const char *lhs, const char *rhs) {
 }
 
 
+
 /**
  * @brief Copies a source string to a destination string.
  *
@@ -89,6 +91,7 @@ char *strcpyS(char* destination, char* source) {
 	destination[i] = '\0';
 	return destination;
 }
+
 
 
 /**
@@ -140,6 +143,7 @@ char *strstrS (const char *s1, const char *s2) {
 }
 
 
+
 /**
  * @brief Splits str[] according to given delimiters.
  *
@@ -149,7 +153,6 @@ char *strstrS (const char *s1, const char *s2) {
  * @return A Pointer to the first token encountered in the string.
 		  	 NULL when there are no more tokens.
  */
-
 
 char *strtokS (char *str, const char *delims) {
     // "Hello, world! Welcome to C programming." and " ,.!"
@@ -173,6 +176,7 @@ char *strtokS (char *str, const char *delims) {
 }
 
 
+
 /**
  * @brief copies up to n characters from the string pointed to, by src to dest.
  *
@@ -193,6 +197,7 @@ char *strncpyS(char *dest, const char *src, size_t n) {
 }
 
 
+
 /**
  * @brief appends the string pointed to by src to the end of the string pointed to by dest up to n characters long.
  *
@@ -204,7 +209,6 @@ char *strncpyS(char *dest, const char *src, size_t n) {
  * @return  returns a pointer to the resulting string dest.
  */
 
-
 char *strncatS (char *dest, const char *src, size_t n) {
     char *p;
     int i = 0;
@@ -215,6 +219,7 @@ char *strncatS (char *dest, const char *src, size_t n) {
     }
     return dest;
 }
+
 
 
 /**
@@ -240,6 +245,7 @@ int strncmpS (const char *str1, const char *str2, size_t n) {
 }
 
 
+
 /**
  * @brief function is used to reverse the given string.
  *
@@ -260,6 +266,7 @@ char *strrevS(char *str) {
     }
     return str;
 }
+
 
 
 /**
@@ -494,6 +501,13 @@ int ParseInteger(char *str) {
 
 
 
+/**
+ * Checks if a given string represents a non-negative integer (i.e., contains only digits).
+ * 
+ * @param str The input string to be checked.
+ * 
+ * @return true if the string contains only digits (0-9), false otherwise.
+ */
 
 bool IsNaN(char *str) {
     for (int i = 0; str[i] != '\0'; i++) {
@@ -504,11 +518,60 @@ bool IsNaN(char *str) {
 
 
 
+/**
+ * Trims a specified character from a given string either from the start, the end, or both ends.
+ * 
+ * @param str The input string to be trimmed.
+ * @param direction The direction of trimming:
+ *        0 - Trim from both ends.
+ *       -1 - Trim from the start.
+ *        1 - Trim from the end.
+ * @param ch The character to be trimmed from the string.
+ * 
+ * @return A new string with the specified character trimmed as per the direction. 
+ *         The caller is responsible for freeing the allocated memory.
+ */
+ 
+char *trim_string(char *str, int direction, char ch) {
+    int count = 0;
+    int length = strlenS(str);
+    int end_trim = -1, start_trim = -1;
+    // find start and end of triming
+    for (int i = 0, j = length - 1; start_trim == -1 || end_trim == -1; i++, j--) {
+        if (str[i] != ch && start_trim == -1) start_trim = i;
+        if (str[i] != ch && end_trim == -1) end_trim = j; 
+    }
+    // set thet start and end
+    int start, end;
+    if (direction == 0) { start = start_trim; end = end_trim + 1; }
+    else if (direction == -1) { start = start_trim; end = length; }
+    else if (direction == 1) { start = 0; end = end_trim + 1; }
+    else return str;
+    char *new_str = (char *) malloc(sizeof(char) * (end));
+    // remove charcter that we want to remove it
+    for (int i = start; i < end; i++) {
+        new_str[count] = str[i];
+        count++;
+    }
+    new_str[count] = '\0';
+    return new_str;
+}
 
 
 
 
-
+char *subString(char *str, int start, int end) {
+    int length = strlenS(str);
+    if (end > length) return str;
+    char *new_str = (char *) malloc(sizeof(char) * (end - start + 1));
+    int count = 0;
+    for (int i = start; i < end; i++) {
+        new_str[count] = str[i];
+        count++;
+    }
+    new_str[count] = '\0';
+    return new_str;
+}
 
 
 

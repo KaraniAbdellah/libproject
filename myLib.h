@@ -25,6 +25,8 @@
 	void toswapcase(char *str);
 	int ParseInteger(char *str);
 	bool IsNaN(char *str);
+	char *trim_string(char *str, int direction, char ch);
+	char *subString(char *str, int start, int end);
 	// End Functions Declaration
 #endif
 
