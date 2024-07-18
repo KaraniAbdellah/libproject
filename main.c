@@ -2,6 +2,8 @@
 #include  "myLib.h" // That Contain All The Functions That Exit in <string.h>
 #include <string.h>
 #include <stdbool.h>
+#include <unistd.h>
+
 
 int main() {
 	// Test strlenS Function
@@ -124,6 +126,15 @@ int main() {
     // Test subString()
     char sub_str_test[20] = "Hello World";
     printf("The SubString from %s From %d to %d is \"%s\"\n", sub_str_test, 4, 8, subString(sub_str_test, 4, 6));
+    // Test cleanString()
+    char clean_str[20] = "Elzero//?4$$%930";
+    printf("The Cleaned String Is %s\n", cleanString(clean_str));
+    // Test randomNumber()
+    printf("The randomNumber Are : \n");
+    for (int i = 0; i < 10; i++) {
+        printf("iter %d : %lf\n", i, randomNumber(i));
+    }
+    
     return 0;
     
 }

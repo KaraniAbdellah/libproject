@@ -27,6 +27,8 @@
 	bool IsNaN(char *str);
 	char *trim_string(char *str, int direction, char ch);
 	char *subString(char *str, int start, int end);
+	char *cleanString(char *str);
+	double randomNumber();
 	// End Functions Declaration
 #endif
 

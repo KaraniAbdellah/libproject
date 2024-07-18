@@ -1,7 +1,10 @@
 #include <stdio.h>
 #include <stdbool.h>
-#include "myLib.h"
 #include <stdlib.h>
+#include <sys/time.h>
+#include "myLib.h"
+#include <unistd.h>
+
 /*
 strlen() strcat() strcmp() strcpy() strchr()
 strstr() strtok() strncpy() strncat() strncmp()
@@ -559,7 +562,16 @@ char *trim_string(char *str, int direction, char ch) {
 
 
 
+/*
+    Extracts a substring from 'str' starting at index 'start' up to index 'end' (exclusive).
 
+    @param str    Input string to extract from.
+    @param start  Starting index of the substring.
+    @param end    Ending index of the substring.
+
+    @return       Extracted substring as a new dynamically allocated string. 
+                  Returns 'str' if 'end' exceeds the string length.
+*/
 char *subString(char *str, int start, int end) {
     int length = strlenS(str);
     if (end > length) return str;
@@ -574,6 +586,60 @@ char *subString(char *str, int start, int end) {
 }
 
 
+
+
+/*
+    Removes non-alphanumeric characters from the input string 'str'.
+
+    @param str    Input string to clean.
+
+    @return       A new string containing only alphanumeric characters 
+                  from 'str', allocated dynamically. The caller is 
+                  responsible for freeing the memory.
+*/
+char *cleanString(char *str) {
+    int length = strlenS(str);
+    char *result = (char*) malloc(sizeof(char) * length);
+    int count = 0;
+    for (int i = 0; i < length; i++) {
+        if ((str[i] >= '0' && str[i] <= '9') || (str[i] >= 'A' && str[i] <= 'Z') || (str[i] >= 'a' && str[i] <= 'z')) {
+            result[count] = str[i];
+            count++;
+        }
+    }
+    return result;
+}
+
+
+
+/*
+struct timeval {
+    time_t      tv_sec;    // seconds 
+    suseconds_t tv_usec;   // microseconds 
+};
+*/
+/*
+    Generates a pseudo-random number based on the current system time in microseconds.
+
+    @return  A pseudo-random integer between 0 and 4.
+*/
+double randomNumber() {
+    struct timeval tv;
+    gettimeofday(&tv, NULL);
+    
+    int current_time =  tv.tv_usec; // get the micro second time
+    static int num = 1;
+    
+    if (num == 1) num = current_time;
+    
+    num = (num + current_time) % 5;
+    double result = (double) num / 4.0 - 0.01;
+    if (result < 0) result *= -1;
+    return result;
+}
+
+
+// make a video and documentation in makedown file
 
 
 
