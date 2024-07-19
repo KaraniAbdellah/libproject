@@ -41,4 +41,6 @@ To compile and execute the project, use the following command:
 
 ```bash
 gcc main.c mylib.c -o main
+./main
+
 
