@@ -639,8 +639,6 @@ double randomNumber() {
 }
 
 
-// Edtting of the video 
-// make a documentation about project
 // make a video of this project
 // share the vides in linkedin and youtube
 // choice the next project of libraruy project
