@@ -39,8 +39,18 @@ LibProject is a collection of built-in functions for string manipulation, mathem
 
 To compile and execute the project, use the following command:
 
+## How to Compile and Execute 🚀
+
+To compile and execute the project, use the following commands:
+
 ```bash
 gcc main.c mylib.c -o main
 ./main
+
+## Contributions 🤝
+
+We welcome and encourage contributions to LibProject. If you have suggestions, improvements, or bug fixes, please submit a pull request. Your support helps us improve and evolve! Developed by Abdellah Karani. © 2024
+
+
 
 
