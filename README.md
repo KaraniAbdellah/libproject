@@ -34,4 +34,11 @@ LibProject is a collection of built-in functions for string manipulation, mathem
 | `char *cleanString(char *str)` | Cleans the string `str` by removing any non-printable characters.                             |
 | `double randomNumber()` | Generates a random number.                                                                       |
 
-Enjoy using LibProject! 😄
+
+## How to Compile and Execute 🚀
+
+To compile and execute the project, use the following command:
+
+```bash
+gcc main.c mylib.c -o main
+
