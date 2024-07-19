@@ -134,9 +134,7 @@ int main() {
     for (int i = 0; i < 10; i++) {
         printf("iter %d : %lf\n", i, randomNumber(i));
     }
-    
     return 0;
-    
 }
 
 
