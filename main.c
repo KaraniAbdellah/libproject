@@ -1,8 +1,7 @@
 #include <stdio.h>
-#include  "myLib.h" // That Contain All The Functions That Exit in <string.h>
+#include  "myLib.h"
 #include <string.h>
 #include <stdbool.h>
-#include <unistd.h>
 
 
 int main() {
